@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucy App Responsive</title>
+  <link rel="stylesheet" href="home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar for Desktop -->
+  <nav class="navbar">
+    <div class="logo">LucyApp</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Market</a></li>
+    </ul>
+    <button class="logout-btn">Logout</button>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="user-info">
+        <img src="https://i.pravatar.cc/100" alt="User" class="avatar">
+        <div>
+          <p class="greeting">Hey there 👋</p>
+          <h2 class="username">Lucy</h2>
+        </div>
+      </div>
+      <div class="header-icons">
+        <button class="icon-btn">🔔</button>
+        <button class="icon-btn">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Main Cards -->
+    <section class="cards">
+      <div class="card">
+        <div class="icon">📞</div>
+        <p>Fake Call</p>
+      </div>
+      <div class="card">
+        <div class="icon">📍</div>
+        <p>Share Live Location</p>
+      </div>
+    </section>
+
+    <!-- Add Close People -->
+    <section class="friends-section">
+      <div class="friends-header">
+        <p>Add Close People</p>
+        <!-- ✅ Add id="openModal" here -->
+        <button class="add-btn" id="openModal">Add Friends ➕</button>
+      </div>
+      <p class="desc">Add close people and friends for SOS</p>
+
+      <!-- ✅ Friend list container -->
+      <div class="friend-list" id="friendList">
+
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h3>Add Friend</h3>
+        <form id="friendForm">
+          <input type="text" id="name" placeholder="Enter Name" required>
+          <input type="tel" id="phone" placeholder="Enter Phone Number" required>
+          <input type="email" id="email" placeholder="Enter Email" required>
+          <button type="submit" class="submit-btn">Save Friend</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Start a Journey -->
+    <section class="journey-section">
+      <button class="journey-btn">Start a journey ➡️</button>
+      <p class="journey-desc">Enter your destination, and the app will track your route in real-time</p>
+    </section>
+  </div>
+
+  <!-- ✅ JS Script -->
+  <script>
+    const openModal = document.getElementById('openModal');
+    const closeModal = document.getElementById('closeModal');
+    const modal = document.getElementById('modal');
+    const friendForm = document.getElementById('friendForm');
+    const friendList = document.getElementById('friendList');
+
+    // Open modal
+    openModal.onclick = () => {
+      modal.style.display = 'block';
+    };
+
+    // Close modal
+    closeModal.onclick = () => {
+      modal.style.display = 'none';
+    };
+
+    // Close modal on outside click
+    window.onclick = (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+
+    // Handle form submission
+    friendForm.onsubmit = (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+
+      // Create friend card
+      const friendCard = document.createElement('div');
+      friendCard.className = 'friend-card';
+      friendCard.innerHTML = `
+        <h4>Name : ${name}</h4>
+        <p>Phone no : ${phone}</p>
+        <p>Email : ${email}</p>
+      `;
+
+      // Append to list
+      friendList.appendChild(friendCard);
+
+      // Reset form
+      friendForm.reset();
+
+      // Close modal
+      modal.style.display = 'none';
+    };
+  </script>
+</body>
+</html>

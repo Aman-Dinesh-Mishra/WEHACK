@@ -1,0 +1,448 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* NAVBAR - Desktop Default */
+.navbar {
+  display: flex;
+  width: 100%;
+  padding: 20px 40px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6699;
+}
+
+.navbar .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background-color: #ff6699;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CONTAINER - Desktop Default */
+.container {
+  max-width: 1200px;
+  margin: 100px auto 0 auto; /* for navbar height */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 40px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: span 2;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid black;
+  margin-right: 20px;
+}
+
+.greeting {
+  font-size: 24px;
+  color: #555;
+}
+
+.username {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.header-icons .icon-btn {
+  background: #fff;
+  border: none;
+  font-size: 18px;
+  margin-left: 10px;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  gap: 20px;
+  grid-column: span 2;
+}
+
+.card {
+  flex: 0 0 200px;
+  max-width: 200px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* FRIENDS SECTION */
+.friends-section {
+  grid-column: span 2;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.friends-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-btn {
+  background-color: #ff6b81;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #ff4757;
+}
+
+.desc {
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+}
+
+.friend-list {
+  margin-top: 20px;
+}
+
+.friend-card {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.friend-card:hover {
+  transform: translateY(-5px);
+}
+
+.friend-card h4 {
+  font-size: 16px;
+}
+
+.friend-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* JOURNEY SECTION */
+.journey-section {
+  grid-column: span 2;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.journey-btn {
+  background-color: #ff6699;
+  color: #fff;
+  border: none;
+  padding: 16px 24px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.journey-desc {
+  font-size: 12px;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  background-color: #1e90ff;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* MOBILE RESPONSIVE STYLES */
+/* Mobile Responsive Tweaks - Keep Desktop Feel But Mobile Friendly */
+@media (max-width: 767px) {
+
+  body {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    padding: 8px 12px;
+  }
+
+
+  /* Navbar adjustments */
+  .navbar {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .navbar .logo {
+    font-size: 15px;
+  }
+  .nav-links{
+    margin-left: 10px;
+  }
+  .navbar ul li a {
+    font-size: 12px;
+  }
+
+  .logout-btn{
+    padding: 5px 8px;
+    font-weight: bold;
+  }
+
+  .navbar .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+  /* Header */
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .header img {
+    width: 130px;
+    height: 130px;
+    margin: 0px 10px 0px 0px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .user-info{
+    gap: 40px;
+  }
+
+  /* Cards container */
+  .cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .card {
+    flex: 0 0 48%;
+    max-width: 48%;
+    min-height: 120px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* Friends Section */
+  .friends-section {
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background-color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .friends-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .add-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  .friend-card {
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  .friend-card p{
+    text-align: left;
+  }
+  
+
+  /* Journey Section */
+  .journey-section {
+    padding: 15px;
+    text-align: center;
+    border-radius: 16px;
+    background-color: #fff;
+  }
+
+  .journey-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
+  /* Modal (if any) */
+  .modal-content {
+    width: 90%;
+    margin-top: 40%;
+    padding: 15px;
+    text-align: left;
+  }
+
+  .close-btn {
+    font-size: 18px;
+  }
+
+  /* General Buttons */
+  button {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  /* Text adjustments */
+  h1, h2, h3, h4 {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
