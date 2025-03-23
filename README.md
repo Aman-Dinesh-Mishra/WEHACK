@@ -1,3 +1,1 @@
-## NariSuraksha
-The Women Safety Application is a full-stack solution designed to provide real-time assistance and security for women in emergency situations. The application leverages modern technologies like FastAPI for a high-performance backend and React.js for an interactive and responsive frontend.
-By leveraging  multiple safety features such as live location tracking, emergency SOS alerts, geosensing, and emergency contacts management this application  enhances  personal security. With a focus on real-time response, the app aims to create a safer environment for women by providing quick access to help when needed.
+# We_hack_backend
